@@ -10,44 +10,25 @@
     <div id="types" class="col-3">
         <vc:crashes></vc:crashes>
     </div>
-  
+
     <div class="card-group col-9">
         @foreach (var crash in Model.Crashes)
         {
             <div class="col-xl-6 col-md-12 mb-4">
-                <div class="card">
-                    <div class="card-content">
-                        <div class="card-body cleartfix">
-                            <div class="media align-items-stretch">
-                                <div class="media-body col-9">
-                                    <small class="text-muted">ID: @crash.CRASH_ID</small><br />
-                                    <span class="pt-1">@crash.CITY</span><br />
-                                    <span>@crash.CRASH_DATE</span>
-                                    <span>@crash.CRASH_TIME</span>
-                                </div>
-                                <div class="col-3">
-                                    <div class="row">
-                                        @if (crash.CRASH_SEVERITY_ID < 4)
-                                        {
-                                        <span class="badge badge-pill badge-warning" style="float:right">
-                                            Crash Severity: @crash.CRASH_SEVERITY_ID
-                                        </span>
-                                        }
-                                        else
-                                        {
-                                        <span class="badge badge-pill badge-danger" style="float:right">
-                                            Crash Severity: @crash.CRASH_SEVERITY_ID
-                                        </span>
-                                        }
-                                    </div>
-                                    <div class="row">
-                                        <span class="card-text">
-                                            <a class="btn btn-outline-info btn-sm" asp-controller="Home" asp-action="CrashDetails" asp-route-crashid="@crash.CRASH_ID">Details</a>
-                                        </span>
-                                    </div>
-                                </div>
+                <div class="card card-stats mb-4 mb-xl-0">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <h5 class="card-title text-uppercase text-muted mb-0">@crash.CRASH_ID</h5>
+                                <span class="h3 font-weight-bold mb-0">@crash.CITY</span>
+                            </div>
+                            <div class="col-auto">
+                                <a class="btn btn-outline-info btn-sm" asp-controller="Home" asp-action="CrashDetails" asp-route-crashid="@crash.CRASH_ID">Details</a>
                             </div>
                         </div>
+                        <p class="mt-0 mb-0 text-muted text-sm">
+                            <span class="text-nowrap">@crash.CRASH_DATE @crash.CRASH_TIME</span>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -56,6 +37,38 @@
 </div>
 
 <nav aria-label="Page navigation example">
-    <ul class="pagination pagination-sm justify-content-center" page-blah="@Model.PageInfo" page-action="Crashes" page-class="btn"
-        page-class-normal="btn-outline-secondary" page-class-selected="btn-secondary" page-classes-enabled="true"></ul>
+    <ul class="pagination pagination-sm justify-content-center"
+        page-blah="@Model.PageInfo"
+        page-action="Crashes"
+        page-class="btn"
+        page-class-normal="btn-outline-secondary"
+        page-class-selected="btn-secondary"
+        page-classes-enabled="true"></ul>
 </nav>
+
+@*Carson old card*@
+@*<div class="col-xl-6 col-md-12 mb-4">
+    <div class="card">
+        <div class="card-content">
+            <div class="card-body cleartfix">
+                <div class="media align-items-stretch">
+                    <div class="media-body col-9">
+                        <small class="text-muted">ID: @crash.CRASH_ID</small><br />
+                        <span class="pt-1">@crash.CITY</span><br />
+                        <span>@crash.CRASH_DATE</span>
+                        <span>@crash.CRASH_TIME</span>
+
+                        <a class="btn btn-outline-info btn-sm" asp-controller="Home" asp-action="CrashDetails" asp-route-crashid="@crash.CRASH_ID">Details</a>
+                    </div>
+                    <div class="col-3">
+                        <div class="row">
+                            <span class="badge badge-pill badge-warning" style="float:right">
+                                @crash.CRASH_SEVERITY_ID
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>*@
