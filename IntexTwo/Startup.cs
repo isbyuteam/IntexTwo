@@ -14,6 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using IntexTwo.Models;
 using Microsoft.ML.OnnxRuntime;
+using Microsoft.AspNetCore.Http;
 
 namespace IntexTwo
 {
@@ -29,6 +30,14 @@ namespace IntexTwo
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<CookiePolicyOptions>(options =>
+            {
+                // This lambda determines whether user consent for non-essential 
+                // cookies is needed for a given request.
+                options.CheckConsentNeeded = context => true;
+                // requires using Microsoft.AspNetCore.Http;
+                options.MinimumSameSitePolicy = SameSiteMode.None;
+            });
             // Default Connection
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseMySql(
@@ -71,6 +80,7 @@ namespace IntexTwo
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseCookiePolicy();
 
             app.UseRouting();
 
