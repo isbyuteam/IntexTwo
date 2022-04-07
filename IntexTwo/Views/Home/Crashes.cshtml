@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "Crashes";
+}
+
+@model CrashViewModel
+
+<h1>Crashes</h1>
+
+<div class="card-group">
+    @foreach (var crash in Model.Crashes)
+    {
+        <div class="col-xl-6 col-md-12 mb-4">
+            <div class="card">
+                <div class="card-content">
+                    <div class="card-body cleartfix">
+                        <div class="media align-items-stretch">
+                            <div class="media-body">
+                                <small class="text-muted">@crash.CRASH_ID</small>
+                                <h4 class="pt-1">@crash.CITY</h4>
+                                <span>@crash.CRASH_DATETIME</span>
+                            </div>
+                            <div class="align-self-center">
+                                <h1>@crash.CRASH_SEVERITY_ID</h1>
+                            </div>
+                        </div>
+                        <a role="button" class="stretched-link" asp-action="CrashDetails"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-end" page-blah="@Model.PageInfo" page-action="Index"></ul>
+</nav>

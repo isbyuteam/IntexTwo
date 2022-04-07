@@ -1,0 +1,64 @@
+﻿@{
+    ViewData["Title"] = "Create/Edit Crash";
+}
+
+@model IntexTwo.Models.CrashModel
+
+<h1>Create/Edit Crash</h1>
+
+<form method="post" class="mb-4">
+    <div asp-validation-summary="All"></div>
+
+    <div class="form-group">
+        <label asp-for="CRASH_DATETIME">Date and Time</label>
+        <input type="text" class="form-control" asp-for="CRASH_DATETIME">
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ROUTE">Route</label>
+        <input type="number" class="form-control" asp-for="ROUTE">
+    </div>
+
+    <div class="form-group">
+        <label asp-for="MILEPOINT">Mile Point</label>
+        <input type="number" class="form-control" asp-for="MILEPOINT">
+    </div>
+
+    <div class="form-group">
+        <label asp-for="LAT_UTM_Y">Latitude</label>
+        <input type="number" class="form-control" asp-for="LAT_UTM_Y">
+    </div>
+
+    <div class="form-group">
+        <label asp-for="LONG_UTM_X">Longitude</label>
+        <input type="number" class="form-control" asp-for="LONG_UTM_X">
+    </div>
+
+    <div class="form-group">
+        <label asp-for="MAIN_ROAD_NAME">Road Name</label>
+        <input type="text" class="form-control" asp-for="MAIN_ROAD_NAME">
+    </div>
+
+    <div class="form-group">
+        <label asp-for="CITY">City</label>
+        <input type="text" class="form-control" asp-for="CITY">
+    </div>
+
+    <div class="form-group">
+        <label asp-for="COUNTY_NAME">County</label>
+        <input type="text" class="form-control" asp-for="COUNTY_NAME">
+    </div>
+
+    <div class="form-group">
+        <label asp-for="CRASH_SEVERITY_ID">Severity</label>
+        <input type="number" class="form-control" asp-for="CRASH_SEVERITY_ID">
+    </div>
+
+    @if (ViewBag.Added == false)
+    {
+        <input type="hidden" asp-for="CRASH_ID" />
+    }
+
+    <a class="btn btn-secondary" role="button" asp-action="Index">Cancel</a>
+    <button type="submit" class="btn btn-success">Submit</button>
+</form>
