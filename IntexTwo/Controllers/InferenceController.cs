@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.ML.OnnxRuntime;
 using Microsoft.ML.OnnxRuntime.Tensors;
 using IntexTwo.Models;
+using IntexTwo.Models.ViewModels;
 
 namespace aspnetcore.Controllers
 {
@@ -15,25 +16,26 @@ namespace aspnetcore.Controllers
         {
             _session = session;
         }
-
         [HttpGet]
-        public IActionResult EnterData()
+        public IActionResult Calculator ()
         {
             return View();
         }
 
+
         [HttpPost]
-        public IActionResult Score(CrashSeverityData data)
+       public IActionResult Result (CrashSeverityData data)
         {
             var result = _session.Run(new List<NamedOnnxValue>
             {
                 NamedOnnxValue.CreateFromTensor("float_input", data.AsTensor())
             });
             Tensor<float> score = result.First().AsTensor<float>();
-            var prediction = new Prediction { PredictedValue = score.First() * 100000 };
+            var prediction = new Prediction { PredictedValue = score.First()};
             result.Dispose();
-            ViewBag.Pred = prediction.PredictedValue;
-            return Ok(prediction);
+            ViewBag.Result = prediction.PredictedValue;
+            return View(prediction);
         }
     }
 }
+

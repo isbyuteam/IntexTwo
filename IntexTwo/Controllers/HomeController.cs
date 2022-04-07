@@ -8,6 +8,8 @@ using Microsoft.Extensions.Logging;
 using IntexTwo.Models;
 using IntexTwo.Models.ViewModels;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.ML.OnnxRuntime;
+using Microsoft.ML.OnnxRuntime.Tensors;
 
 namespace IntexTwo.Controllers
 {
@@ -50,19 +52,12 @@ namespace IntexTwo.Controllers
             return View();
         }
 
-        public IActionResult Calculator()
-        {
-            return View();
-        }
-
-        public IActionResult CalculatorResults()
-        {
-            return View();
-        }
 
         public IActionResult Privacy()
         {
             return View();
         }
+
     }
 }
+

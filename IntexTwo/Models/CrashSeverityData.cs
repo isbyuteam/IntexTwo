@@ -1,4 +1,5 @@
-﻿using Microsoft.ML.OnnxRuntime.Tensors;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.ML.OnnxRuntime.Tensors;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -9,7 +10,7 @@ namespace IntexTwo.Models
 {
     public class CrashSeverityData
     {
-
+        public float crash_severity_id { get; set; }
         public float minute { get; set; }
         public float day { get; set; }
         public float hour { get; set; }
@@ -66,6 +67,7 @@ namespace IntexTwo.Models
         {
             float[] data = new float[]
             {
+                crash_severity_id,
                 minute, day, hour,month,
                 motorcycle_involved_True,
                 pedestrian_involved_True,
@@ -92,7 +94,7 @@ namespace IntexTwo.Models
                 city_PROVO,
                 distracted_driving_True
             };
-            int[] dimensions = new int[] { 1, 28 };
+            int[] dimensions = new int[] { 1, 29 };
             return new DenseTensor<float>(data, dimensions);
         }
     }
