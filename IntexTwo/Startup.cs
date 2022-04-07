@@ -74,6 +74,11 @@ namespace IntexTwo
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
+                    "crashCity",
+                    "{crashCity}",
+                    new { Controller = "Home", action = "Index" });
+
+                endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();

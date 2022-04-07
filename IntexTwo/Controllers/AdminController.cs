@@ -22,7 +22,7 @@ namespace IntexTwo.Controllers
         public IActionResult Index(int pageNum = 1)
         {
             var crashes = _context.Crashes.ToList();
-            int pageSize = 450;
+            int pageSize = 100;
             var pageData = new CrashViewModel
             {
                 Crashes = _context.Crashes

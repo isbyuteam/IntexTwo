@@ -14,7 +14,11 @@
     <None Remove="Infrastructure\" />
     <None Remove="Models\ViewModels\" />
     <None Remove="Views\Admin\" />
+
     <None Remove="Microsoft.ML.OnnxRuntime" />
+    <None Remove="Components\" />
+    <None Remove="Views\Shared\Components\" />
+    <None Remove="Views\Shared\Components\Crashes\" />
   </ItemGroup>
   <ItemGroup>
     <None Update="app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
@@ -42,6 +46,9 @@
     <Folder Include="Infrastructure\" />
     <Folder Include="Models\ViewModels\" />
     <Folder Include="Views\Admin\" />
+    <Folder Include="Components\" />
+    <Folder Include="Views\Shared\Components\" />
+    <Folder Include="Views\Shared\Components\Crashes\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\lib\qrcode\" />

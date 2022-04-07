@@ -30,7 +30,7 @@ namespace IntexTwo.Controllers
         public IActionResult Crashes(int pageNum = 1)
         {
             var crashes = _context.Crashes.ToList();
-            int pageSize = 450;
+            int pageSize = 100;
             var pageData = new CrashViewModel
             {
                 Crashes = _context.Crashes
@@ -47,9 +47,11 @@ namespace IntexTwo.Controllers
             return View(pageData);
         }
 
-        public IActionResult CrashDetails()
+        public IActionResult CrashDetails(int crashId)
         {
-            return View();
+            var crash = _context.Crashes.Single(x => x.CRASH_ID == crashId);
+
+            return View(crash);
         }
 
 
