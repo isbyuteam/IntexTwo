@@ -14,6 +14,7 @@
     <None Remove="Infrastructure\" />
     <None Remove="Models\ViewModels\" />
     <None Remove="Views\Admin\" />
+    <None Remove="Microsoft.ML.OnnxRuntime" />
   </ItemGroup>
   <ItemGroup>
     <None Update="app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
@@ -32,6 +33,7 @@
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.23" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+    <PackageReference Include="Microsoft.ML.OnnxRuntime" Version="1.11.0" />
   </ItemGroup>
 
   <ItemGroup>

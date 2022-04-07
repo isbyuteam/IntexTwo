@@ -1,37 +1,210 @@
 ﻿@{
     ViewData["Title"] = "Calculator";
 }
+@model CrashSeverityData
 
-<h1>Calculator</h1>
+<h1>
+    Calculator
+</h1>
 
 <div>
     <form method="post">
+        <div class="text-danger" asp-validation-summary="All"></div>
+
         <div class="form-group">
-            <label>Fill</label>
-            <input class="form-control" placeholder="Fill" />
+            <label asp-for="minute">Minute</label>
+            <input asp-for="minute" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="day">Day</label>
+            <input asp-for="day" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="hour">Hour</label>
+            <input asp-for="hour" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="month">Month</label>
+            <input asp-for="month" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="year">Year</label>
+            <input asp-for="year" class="form-control" />
+
+
+            <div class="form-group">
+                <label asp-for="day_of_week_Monday">Monday</label>
+                <select asp-for="day_of_week_Monday">
+                    <option value=0.0>No</option>
+                    <option value=1.0>Yes</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="day_of_week_Tuesday">Tuesday</label>
+                <select asp-for="day_of_week_Tuesday">
+                    <option value=0.0>No</option>
+                    <option value=1.0>Yes</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="day_of_week_Wednesday">Wednesday</label>
+                <select asp-for="day_of_week_Wednesday">
+                    <option value=0.0>No</option>
+                    <option value=1.0>Yes</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="day_of_week_Thursday">Thursday</label>
+                <select asp-for="day_of_week_Wednesday">
+                    <option value=0.0>No</option>
+                    <option value=1.0>Yes</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="day_of_week_Saturday">Saturday</label>
+                <select asp-for="day_of_week_Saturday">
+                    <option value=0.0>No</option>
+                    <option value=1.0>Yes</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="day_of_week_Sunday">Sunday</label>
+                <select asp-for="day_of_week_Sunday">
+                    <option value=0.0>No</option>
+                    <option value=1.0>Yes</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="motorcycle_involved_True">Motorcycle Involved</label>
+                <select asp-for="motorcycle_involved_True">
+                    <option value=0.0>No</option>
+                    <option value=1.0>Yes</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="pedestrian_involved_True">Predestrian Involved</label>
+                <select asp-for="pedestrian_involved_True">
+                    <option value=0.0>No</option>
+                    <option value=1.0>Yes</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="overturn_rollover_True">Overturn Rollover</label>
+                <select asp-for="overturn_rollover_True">
+                    <option value=0.0>No</option>
+                    <option value=1.0>Yes</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="bicyclist_involved_True">Bicycle Involved</label>
+                <select asp-for="bicyclist_involved_True">
+                    <option value=0.0>No</option>
+                    <option value=1.0>Yes</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="teenage_driver_involved_True">Teenage Driver Involved</label>
+            <select asp-for="teenage_driver_involved_True">
+                <option value=0.0>No</option>
+                <option value=1.0>Yes</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label asp-for="teenage_driver_involved_True">Unrestrained</label>
+            <select asp-for="teenage_driver_involved_True">
+                <option value=0.0>No</option>
+                <option value=1.0>Yes</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label asp-for="night_dark_condition_True">Night Dark Condition</label>
+            <select asp-for="night_dark_condition_True">
+                <option value=0.0>No</option>
+                <option value=1.0>Yes</option>
+            </select>
         </div>
 
         <div class="form-group">
-            <label>Fill</label>
-            <input class="form-control" placeholder="Fill" />
+            <label asp-for="roadway_departure_True">Roadway Departure</label>
+            <select asp-for="roadway_departure_True">
+                <option value=0.0>No</option>
+                <option value=1.0>Yes</option>
+            </select>
         </div>
-
         <div class="form-group">
-            <label>Fill</label>
-            <input class="form-control" placeholder="Fill" />
+            <label asp-for="older_driver_involved_True">Older Driver Involved</label>
+            <select asp-for="older_driver_involved_True">
+                <option value=0.0>No</option>
+                <option value=1.0>Yes</option>
+            </select>
         </div>
-
         <div class="form-group">
-            <label>Fill</label>
-            <input class="form-control" placeholder="Fill" />
+            <label asp-for="single_vehicle_True">Single Vehicle</label>
+            <select asp-for="single_vehicle_True">
+                <option value=0.0>No</option>
+                <option value=1.0>Yes</option>
+            </select>
         </div>
-
         <div class="form-group">
-            <label>Fill</label>
-            <input class="form-control" placeholder="Fill" />
+            <label asp-for="wild_animal_related_True">Wild Animal Related</label>
+            <select asp-for="wild_animal_related_True">
+                <option value=0.0>No</option>
+                <option value=1.0>Yes</option>
+            </select>
         </div>
-
+        <div class="form-group">
+            <label asp-for="intersection_related_True">Intersection Related</label>
+            <select asp-for="intersection_related_True">
+                <option value=0.0>No</option>
+                <option value=1.0>Yes</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label asp-for="dui_True">Dui</label>
+            <select asp-for="dui_True">
+                <option value=0.0>No</option>
+                <option value=1.0>Yes</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label asp-for="work_zone_related">Work Zone Related</label>
+            <select asp-for="work_zone_related">
+                <option value=0.0>No</option>
+                <option value=1.0>Yes</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label asp-for="improper_restraint_True">Improper Retraint</label>
+            <select asp-for="improper_restraint_True">
+                <option value=0.0>No</option>
+                <option value=1.0>Yes</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label asp-for="city_PROVO">City_Provo</label>
+            <select asp-for="city_PROVO">
+                <option value=0.0>No</option>
+                <option value=1.0>Yes</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label asp-for="distracted_driving_True">Distracted Driving</label>
+            <select asp-for="distracted_driving_True">
+                <option value=0.0>No</option>
+                <option value=1.0>Yes</option>
+            </select>
+        </div>
         <button class="btn btn-primary" type="submit" asp-controller="Home" asp-action="CalculatorResults">Calculate Severity</button>
 
     </form>
+
+    <div class="col-5">
+        <h2>Severity Level</h2>
+        <h5>Predicted Severity Level:</h5>
+        <h4><strong>@ViewBag.Prediction</strong></h4>
+    </div>
 </div>
