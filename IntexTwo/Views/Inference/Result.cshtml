@@ -6,29 +6,35 @@
 <div class="card-group col-9">
     <div class="col-3">
         <div class="row">
-            @if (Model.PredictedValue > 4 && Model.PredictedValue == 5)
+            @if (Model.PredictedValue >  4)
             {
-                <span class="badge badge-danger" style="float:right">
-                    Predicted Severity Value: @Model.PredictedValue
-                </span>
+                <h1>
+                    <span class="badge badge-danger" style="float:right">
+                        Predicted Severity Value: @Model.PredictedValue
+                    </span>
+                </h1>
             }
-            else if (Model.PredictedValue > 3 && Model.PredictedValue == 4)
+            else if (Model.PredictedValue > 3)
             {
-                <span class="badge badge-warning" style="float:right">
-                    Predicted Severity Value: @Model.PredictedValue
-                </span>
+                <h1>
+                    <span class="badge badge-warning" style="float:right">
+                        Predicted Severity Value: @Model.PredictedValue
+                    </span>
+                </h1>
             }
             else
             {
-                <span class="badge badge-pill badge-primary" style="float:right">
-                    Predicted Severity Value: @Model.PredictedValue
-                </span>
+                <h1>
+                    <span class="badge badge-primary" style="float:right">
+                        Predicted Severity Value: @Model.PredictedValue
+                    </span>
+                </h1>
             }
-            <div class="row">
-                <span class="card-text">
-                    <a class="btn btn-primary" asp-controller="Inference" asp-action="Calculator">Return to Calculator</a>
-                </span>
-           </div>
+                <div class="row">
+                    <span class="card-text">
+                        <a class="btn btn-primary" asp-controller="Inference" asp-action="Calculator">Return to Calculator</a>
+                    </span>
+                </div>
         </div>
     </div>
 </div>
