@@ -6,13 +6,18 @@
 
 <h1>Admin</h1>
 
-<a class="btn btn-success" role="button" asp-action="CreateEditCrash">Add</a>
+<a class="btn btn-success" role="button" asp-action="CreateEditCrash">Add Record</a>
 
-<table class="table">
+<div id="types" class="col-2">
+    <vc:crashes></vc:crashes>
+</div>
+
+<table class="table col-10">
     <thead>
         <tr>
             <th scope="col">ID</th>
             <th scope="col">Date</th>
+            <th scope="col">Time</th>
             <th scope="col">City</th>
             <th scope="col">Road</th>
             <th scope="col">Severity</th>

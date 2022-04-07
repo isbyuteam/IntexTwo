@@ -5,31 +5,38 @@
 @model CrashViewModel
 
 <h1>Crashes</h1>
-
-<div class="card-group">
-    @foreach (var crash in Model.Crashes)
-    {
-        <div class="col-xl-6 col-md-12 mb-4">
-            <div class="card">
-                <div class="card-content">
-                    <div class="card-body cleartfix">
-                        <div class="media align-items-stretch">
-                            <div class="media-body">
-                                <small class="text-muted">@crash.CRASH_ID</small>
-                                <h4 class="pt-1">@crash.CITY</h4>
-                                <span>@crash.CRASH_DATE</span>
-                                <span>@crash.CRASH_TIME</span>
-                            </div>
-                            <div class="align-self-center">
-                                <h1>@crash.CRASH_SEVERITY_ID</h1>
+<div>
+    <div id="types" class="col-3">
+        <vc:crashes></vc:crashes>
+    </div>
+  
+    <div class="card-group col-9">
+        @foreach (var crash in Model.Crashes)
+        {
+            <div class="col-xl-6 col-md-12 mb-4">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="card-body cleartfix">
+                            <div class="media align-items-stretch">
+                                <span class="badge bg-danger text-dark" style="float:right">
+                                    Crash Severity: @crash.CRASH_SEVERITY_ID
+                                </span>
+                                <div class="media-body">
+                                    <small class="text-muted">ID: @crash.CRASH_ID</small>
+                                    <h4 class="pt-1">@crash.CITY</h4>
+                                    <span>@crash.CRASH_DATE</span>
+                                    <span>@crash.CRASH_TIME</span>
+                                </div>
+                                <span class="card-text">
+                                    <a class="btn btn-sm btn-info float-end" asp-controller="Home" asp-action="CrashDetails" asp-route-crashid="@crash.CRASH_ID">Details</a>
+                                </span>
                             </div>
                         </div>
-                        <a role="button" class="stretched-link" asp-action="CrashDetails"></a>
                     </div>
                 </div>
             </div>
-        </div>
-    }
+        }
+    </div>
 </div>
 
 <nav aria-label="Page navigation example">
