@@ -8,15 +8,25 @@ namespace IntexTwo.Models
         [Key]
         [Required]
         public int CRASH_ID { get; set; }
+        [Required(ErrorMessage = "Please enter a crash date")]
         public string CRASH_DATE { get; set; }
+        [Required(ErrorMessage = "Please enter a city time")]
         public string CRASH_TIME { get; set; }
+        [Required(ErrorMessage = "Please enter a route")]
         public int ROUTE { get; set; }
+        [Required(ErrorMessage = "Please enter a milepoint")]
         public double MILEPOINT { get; set; }
+        [Required(ErrorMessage = "Please enter a latitude")]
         public double LAT_UTM_Y { get; set; }
+        [Required(ErrorMessage = "Please enter a city longitude")]
         public double LONG_UTM_X { get; set; }
+        [Required(ErrorMessage = "Please enter road name")]
         public string MAIN_ROAD_NAME { get; set; }
+        [Required(ErrorMessage = "Please enter a city name")]
         public string CITY { get; set; }
+        [Required(ErrorMessage = "Please enter a county name")]
         public string COUNTY_NAME { get; set; }
+        [Required(ErrorMessage = "Please enter a crash severity")]
         public int CRASH_SEVERITY_ID { get; set; }
         public bool WORK_ZONE_RELATED { get; set; }
         public bool PEDESTRIAN_INVOLVED { get; set; }
