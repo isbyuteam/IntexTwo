@@ -5,7 +5,7 @@
         asp-action="Index"
         asp-route-cityName=""
         asp-route-pageNum="1"
-        class="btn btn-sm @(ViewBag.Cities == "" ? "btn-primary" :  "btn-outline-secondary")">Home</a>
+        class="btn btn-sm btn-outline-primary my-2 @(ViewBag.Cities == "" ? "btn-primary" :  "btn-outline-primary")">Home</a><br />
 
     @foreach (string city in Model)
     {
@@ -13,6 +13,6 @@
             asp-action="Index"
             asp-route-cityName="@city"
             asp-route-pageNum="1"
-            class="btn btn-sm @(ViewBag.SelectedType == city ? "btn-primary" : "btn-outline-secondary")">@city</a>
+            class="btn btn-sm @(ViewBag.SelectedType == city ? "btn-secondary" : "btn-outline-secondary")">@city</a>
     }
 </div>
