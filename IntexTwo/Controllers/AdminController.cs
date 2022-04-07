@@ -19,13 +19,16 @@ namespace IntexTwo.Controllers
             _context = context;
         }
 
-        public IActionResult Index(int pageNum = 1)
+        public IActionResult Index(string cityName, int pageNum = 1)
         {
+            ViewBag.CityName = cityName ?? "Home";
+
             var crashes = _context.Crashes.ToList();
             int pageSize = 100;
             var pageData = new CrashViewModel
             {
                 Crashes = _context.Crashes
+                            .Where(crash => crash.CITY == cityName || cityName == null) // filter
                             .OrderBy(crash => crash.CRASH_ID)
                             .Skip((pageNum - 1) * pageSize)
                             .Take(pageSize),

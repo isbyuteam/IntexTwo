@@ -1,0 +1,18 @@
+﻿@model IEnumerable<string>
+
+<div class="d-grid gap-2">
+    <a asp-controller="Admin"
+        asp-action="Index"
+        asp-route-cityName=""
+        asp-route-pageNum="1"
+        class="btn btn-sm @(ViewBag.Cities == "" ? "btn-primary" :  "btn-outline-secondary")">Home</a>
+
+    @foreach (string city in Model)
+    {
+        <a asp-controller="Admin"
+            asp-action="Index"
+            asp-route-cityName="@city"
+            asp-route-pageNum="1"
+            class="btn btn-sm @(ViewBag.SelectedType == city ? "btn-primary" : "btn-outline-secondary")">@city</a>
+    }
+</div>
