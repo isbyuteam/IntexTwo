@@ -11,9 +11,13 @@ namespace IntexTwo.Models
     public class CrashSeverityData
     {
         public float crash_severity_id { get; set; }
+        [Required(ErrorMessage = "Please enter a data")]
         public float minute { get; set; }
+        [Required(ErrorMessage = "Please enter a data")]
         public float day { get; set; }
+        [Required(ErrorMessage = "Please enter a data")]
         public float hour { get; set; }
+        [Required(ErrorMessage = "Please enter a data")]
         public float month { get; set; }
         [Range(0, 1)]
         public float motorcycle_involved_True { get; set; }
