@@ -52,6 +52,13 @@ namespace IntexTwo
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
+            // Implement HSTS
+            services.AddHsts(options =>
+            {
+                options.Preload = true;
+                options.IncludeSubDomains = true;
+                options.MaxAge = TimeSpan.FromDays(356);
+            });
             services.AddRazorPages();
 
 
@@ -60,7 +67,7 @@ namespace IntexTwo
             // VVV DOESNT RUN ON MAC BUT WE NEED THIS FOR THE PREDICTION VVV
 
             //services.AddSingleton<InferenceSession>(
-            //    new InferenceSession("Models/intex2.onnx")
+            //    new InferenceSession("wwwroot/onnx/intex2.onnx")
             //);
         }
 
@@ -102,3 +109,9 @@ namespace IntexTwo
         }
     }
 }
+
+
+
+
+
+
