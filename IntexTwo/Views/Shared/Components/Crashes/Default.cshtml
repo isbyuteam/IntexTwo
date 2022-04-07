@@ -1,14 +1,18 @@
-﻿@{
-}
-
-@model IEnumerable<string>
+﻿@model IEnumerable<string>
 
 <div class="d-grid gap-2">
-    <a asp-controller="Home" asp-action="Index" asp-route-city="" asp-route-pageNum="1" class="btn btn-sm btn-outline-primary">Home</a><br />
+    <a asp-controller="Home"
+       asp-action="Crashes"
+       asp-route-cityName=""
+       asp-route-pageNum="1"
+       class="btn btn-sm @(ViewBag.Cities == "" ? "btn-primary" :  "btn-outline-secondary")">Home</a>
 
     @foreach (string city in Model)
     {
-        <a asp-controller="Home" asp-action="Index" asp-route-city="@city" asp-route-pageNum="1"
+        <a asp-controller="Home"
+           asp-action="Crashes"
+           asp-route-cityName="@city"
+           asp-route-pageNum="1"
            class="btn btn-sm @(ViewBag.SelectedType == city ? "btn-primary" : "btn-outline-secondary")">@city</a>
     }
-</div> 
+</div>
