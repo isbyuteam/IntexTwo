@@ -7,11 +7,11 @@ using IntexTwo.Models;
 
 namespace IntexTwo.Components
 {
-    public class CrashesViewComponent : ViewComponent
+    public class FilterViewComponent : ViewComponent
     {
         private CrashesDbContext _context { get; set; }
 
-        public CrashesViewComponent(CrashesDbContext temp)
+        public FilterViewComponent(CrashesDbContext temp)
         {
             _context = temp;
         }
