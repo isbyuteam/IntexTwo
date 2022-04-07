@@ -8,8 +8,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IntexTwo.Migrations
 {
     [DbContext(typeof(CrashesDbContext))]
-    [Migration("20220407021257_Initial")]
-    partial class Initial
+    [Migration("20220407044557_Inital")]
+    partial class Inital
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -36,11 +36,14 @@ namespace IntexTwo.Migrations
                     b.Property<string>("COUNTY_NAME")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<string>("CRASH_DATETIME")
+                    b.Property<string>("CRASH_DATE")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<int>("CRASH_SEVERITY_ID")
                         .HasColumnType("int");
+
+                    b.Property<string>("CRASH_TIME")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<bool>("DISTRACTED_DRIVING")
                         .HasColumnType("tinyint(1)");

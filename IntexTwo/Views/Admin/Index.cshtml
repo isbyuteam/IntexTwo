@@ -23,15 +23,16 @@
     <tbody>
         @foreach (var crash in Model.Crashes)
         {
-            <tr>
-                <th scope="row">@crash.CRASH_ID</th>
-                <td>@crash.CRASH_DATETIME</td>
-                <td>@crash.CITY</td>
-                <td>@crash.MAIN_ROAD_NAME</td>
-                <td>@crash.CRASH_SEVERITY_ID</td>
-                <td><a class="btn btn-outline-info btn-sm" role="button" asp-action="Edit" asp-route-crashId="@crash.CRASH_ID">Edit</a></td>
-                <td><a class="btn btn-outline-danger btn-sm" role="button" asp-action="Delete" asp-route-crashId="@crash.CRASH_ID">Delete</a></td>
-            </tr>
+        <tr>
+            <th scope="row">@crash.CRASH_ID</th>
+            <td>@crash.CRASH_DATE</td>
+            <td>@crash.CRASH_TIME</td>
+            <td>@crash.CITY</td>
+            <td>@crash.MAIN_ROAD_NAME</td>
+            <td>@crash.CRASH_SEVERITY_ID</td>
+            <td><a class="btn btn-outline-info btn-sm" role="button" asp-action="Edit" asp-route-crashId="@crash.CRASH_ID">Edit</a></td>
+            <td><a class="btn btn-outline-danger btn-sm" role="button" asp-action="Delete" asp-route-crashId="@crash.CRASH_ID">Delete</a></td>
+        </tr>
         }
     </tbody>
 </table>

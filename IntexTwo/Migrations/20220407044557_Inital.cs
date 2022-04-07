@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace IntexTwo.Migrations
 {
-    public partial class Initial : Migration
+    public partial class Inital : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,7 +13,8 @@ namespace IntexTwo.Migrations
                 {
                     CRASH_ID = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    CRASH_DATETIME = table.Column<string>(nullable: true),
+                    CRASH_DATE = table.Column<string>(nullable: true),
+                    CRASH_TIME = table.Column<string>(nullable: true),
                     ROUTE = table.Column<int>(nullable: false),
                     MILEPOINT = table.Column<double>(nullable: false),
                     LAT_UTM_Y = table.Column<double>(nullable: false),
