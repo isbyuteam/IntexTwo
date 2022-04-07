@@ -32,7 +32,7 @@ namespace IntexTwo.Controllers
             ViewBag.CityName = cityName ?? "Home";
 
             var crashes = _context.Crashes.ToList();
-            int pageSize = 100;
+            int pageSize = 50;
             var pageData = new CrashViewModel
             {
                 Crashes = _context.Crashes
@@ -40,11 +40,12 @@ namespace IntexTwo.Controllers
                             .OrderBy(crash => crash.CRASH_ID)
                             .Skip((pageNum - 1) * pageSize)
                             .Take(pageSize),
+
                 PageInfo = new PageInformation
                 {
                     NumOfCrashes = _context.Crashes.Count(),
                     CrashesPerPage = pageSize,
-                    CurrrentPage = pageNum
+                    CurrentPage = pageNum
                 }
             };
             return View(pageData);
