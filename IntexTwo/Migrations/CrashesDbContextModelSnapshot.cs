@@ -34,11 +34,14 @@ namespace IntexTwo.Migrations
                     b.Property<string>("COUNTY_NAME")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<string>("CRASH_DATETIME")
+                    b.Property<string>("CRASH_DATE")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<int>("CRASH_SEVERITY_ID")
                         .HasColumnType("int");
+
+                    b.Property<string>("CRASH_TIME")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<bool>("DISTRACTED_DRIVING")
                         .HasColumnType("tinyint(1)");

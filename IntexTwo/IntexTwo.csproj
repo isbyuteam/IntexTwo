@@ -14,7 +14,15 @@
     <None Remove="Infrastructure\" />
     <None Remove="Models\ViewModels\" />
     <None Remove="Views\Admin\" />
+
     <None Remove="Microsoft.ML.OnnxRuntime" />
+    <None Remove="Components\" />
+    <None Remove="Views\Shared\Components\" />
+    <None Remove="Views\Shared\Components\Crashes\" />
+    <None Remove="Views\Shared\Components\Filter\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="wwwroot\onnx\intex2.onnx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="wwwroot\onnx\intex2.onnx" />

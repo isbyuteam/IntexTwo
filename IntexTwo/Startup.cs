@@ -14,6 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using IntexTwo.Models;
 using Microsoft.ML.OnnxRuntime;
+using Microsoft.AspNetCore.Http;
 
 namespace IntexTwo
 {
@@ -29,6 +30,14 @@ namespace IntexTwo
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<CookiePolicyOptions>(options =>
+            {
+                // This lambda determines whether user consent for non-essential 
+                // cookies is needed for a given request.
+                options.CheckConsentNeeded = context => true;
+                // requires using Microsoft.AspNetCore.Http;
+                options.MinimumSameSitePolicy = SameSiteMode.None;
+            });
             // Default Connection
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseMySql(
@@ -43,7 +52,6 @@ namespace IntexTwo
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
-
             // Implement HSTS
             services.AddHsts(options =>
             {
@@ -51,13 +59,6 @@ namespace IntexTwo
                 options.IncludeSubDomains = true;
                 options.MaxAge = TimeSpan.FromDays(356);
             });
-
-            services.AddRazorPages();
-
-            //onnx file
-            services.AddSingleton<InferenceSession>(
-                new InferenceSession("wwwroot/onnx/intex2.onnx")
-            );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -74,8 +75,9 @@ namespace IntexTwo
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseCookiePolicy();
 
             app.UseRouting();
 
@@ -85,6 +87,11 @@ namespace IntexTwo
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
+                    "crashCity",
+                    "{crashCity}",
+                    new { Controller = "Home", action = "Index" });
+
+                endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
@@ -92,3 +99,9 @@ namespace IntexTwo
         }
     }
 }
+
+
+
+
+
+
