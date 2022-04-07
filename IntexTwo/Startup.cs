@@ -43,10 +43,21 @@ namespace IntexTwo
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
+
+            // Implement HSTS
+            services.AddHsts(options =>
+            {
+                options.Preload = true;
+                options.IncludeSubDomains = true;
+                options.MaxAge = TimeSpan.FromDays(356);
+            });
+
             services.AddRazorPages();
+
+            //onnx file
             services.AddSingleton<InferenceSession>(
                 new InferenceSession("Models/intex2.onnx")
-                );
+            );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
