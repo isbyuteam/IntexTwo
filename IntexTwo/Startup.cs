@@ -44,9 +44,15 @@ namespace IntexTwo
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
-            services.AddSingleton<InferenceSession>(
-                new InferenceSession("Models/intex2.onnx")
-                );
+
+
+
+            // !!! IMPORTANT !!!
+            // VVV DOESNT RUN ON MAC BUT WE NEED THIS FOR THE PREDICTION VVV
+
+            //services.AddSingleton<InferenceSession>(
+            //    new InferenceSession("Models/intex2.onnx")
+            //);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
