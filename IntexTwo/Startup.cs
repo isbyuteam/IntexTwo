@@ -56,7 +56,7 @@ namespace IntexTwo
 
             //onnx file
             services.AddSingleton<InferenceSession>(
-                new InferenceSession("Models/intex2.onnx")
+                new InferenceSession("wwwroot/onnx/intex2.onnx")
             );
         }
 

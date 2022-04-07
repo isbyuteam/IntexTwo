@@ -17,6 +17,9 @@
     <None Remove="Microsoft.ML.OnnxRuntime" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="wwwroot\onnx\intex2.onnx" />
+  </ItemGroup>
+  <ItemGroup>
     <None Update="app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
   </ItemGroup>
 
@@ -42,8 +45,11 @@
     <Folder Include="Infrastructure\" />
     <Folder Include="Models\ViewModels\" />
     <Folder Include="Views\Admin\" />
+    <Folder Include="wwwroot\onnx\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\lib\qrcode\" />
+    <Content Remove="wwwroot\onnx\" />
+    <Content Remove="wwwroot\onnx\intex2.onnx" />
   </ItemGroup>
 </Project>
