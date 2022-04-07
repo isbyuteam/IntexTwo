@@ -8,39 +8,41 @@
 
 <a class="btn btn-success" role="button" asp-action="CreateEditCrash">Add Record</a>
 
-<div id="types" class="col-2">
-    <vc:crashes></vc:crashes>
-</div>
+<div class="row m-1 p-1">
+    <div id="types" class="col-2">
+        <vc:crashes></vc:crashes>
+    </div>
 
-<table class="table col-10">
-    <thead>
-        <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Date</th>
-            <th scope="col">Time</th>
-            <th scope="col">City</th>
-            <th scope="col">Road</th>
-            <th scope="col">Severity</th>
-            <th scope="col"></th>
-            <th scope="col"></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var crash in Model.Crashes)
-        {
-        <tr>
-            <th scope="row">@crash.CRASH_ID</th>
-            <td>@crash.CRASH_DATE</td>
-            <td>@crash.CRASH_TIME</td>
-            <td>@crash.CITY</td>
-            <td>@crash.MAIN_ROAD_NAME</td>
-            <td>@crash.CRASH_SEVERITY_ID</td>
-            <td><a class="btn btn-outline-info btn-sm" role="button" asp-action="Edit" asp-route-crashId="@crash.CRASH_ID">Edit</a></td>
-            <td><a class="btn btn-outline-danger btn-sm" role="button" asp-action="Delete" asp-route-crashId="@crash.CRASH_ID">Delete</a></td>
-        </tr>
-        }
-    </tbody>
-</table>
+    <table class="table col-10">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Date</th>
+                <th scope="col">Time</th>
+                <th scope="col">City</th>
+                <th scope="col">Road</th>
+                <th scope="col">Severity</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var crash in Model.Crashes)
+            {
+                <tr>
+                    <th scope="row">@crash.CRASH_ID</th>
+                    <td>@crash.CRASH_DATE</td>
+                    <td>@crash.CRASH_TIME</td>
+                    <td>@crash.CITY</td>
+                    <td>@crash.MAIN_ROAD_NAME</td>
+                    <td>@crash.CRASH_SEVERITY_ID</td>
+                    <td><a class="btn btn-outline-info btn-sm" role="button" asp-action="Edit" asp-route-crashId="@crash.CRASH_ID">Edit</a></td>
+                    <td><a class="btn btn-outline-danger btn-sm" role="button" asp-action="Delete" asp-route-crashId="@crash.CRASH_ID">Delete</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
 
 <nav aria-label="Page navigation example">
     <ul class="pagination justify-content-end" page-blah="@Model.PageInfo" page-action="Index"></ul>
