@@ -3,38 +3,40 @@
 }
 @model Prediction
 
-<div class="card-group col-9">
-    <div class="col-3">
-        <div class="row">
-            @if (Model.PredictedValue > 4)
-            {
-                <h1>
-                    <span class="badge badge-danger" style="float:right">
-                        Predicted Severity Value: @Model.PredictedValue
-                    </span>
-                </h1>
-            }
-            else if (Model.PredictedValue > 3)
-            {
-                <h1>
-                    <span class="badge badge-warning" style="float:right">
-                        Predicted Severity Value: @Model.PredictedValue
-                    </span>
-                </h1>
-            }
-            else
-            {
-                <h1>
-                    <span class="badge badge-primary" style="float:right">
-                        Predicted Severity Value: @Model.PredictedValue
-                    </span>
-                </h1>
-            }
-                <div class="row">
-                    <span class="card-text">
-                        <a class="btn btn-primary" asp-controller="Inference" asp-action="Calculator">Return to Calculator</a>
-                    </span>
-                </div>
-        </div>
+<div class="card text-center card-inverse">
+    <h3 class="card-header">Predicted Severity Value</h3>
+    <div class="card-block">
+        @if (Model.PredictedValue > 4)
+        {
+            <h3 class="card-text">
+                <span class="badge badge-danger" align="center">
+                    @Model.PredictedValue
+                </span>
+            </h3>
+        }
+        else if (Model.PredictedValue > 3)
+        {
+            <h3 class="card-text">
+                <span class="badge badge-warning" align="center">
+                    @Model.PredictedValue
+                </span>
+            </h3>
+        }
+        else
+        {
+            <h3 class="card-text">
+                <span class="badge badge-primary" align="center">
+                    @Model.PredictedValue
+                </span>
+            </h3>
+        }
     </div>
 </div>
+</br>
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <a class="btn btn-primary" asp-controller="Inference" asp-action="Calculator">Return to Calculator</a>
+</div>
+
+
+
+
