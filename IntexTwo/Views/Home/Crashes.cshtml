@@ -19,19 +19,32 @@
                     <div class="card-content">
                         <div class="card-body cleartfix">
                             <div class="media align-items-stretch">
-                                <div class="media-body">
+                                <div class="media-body col-9">
                                     <small class="text-muted">ID: @crash.CRASH_ID</small><br />
                                     <span class="pt-1">@crash.CITY</span><br />
                                     <span>@crash.CRASH_DATE</span>
                                     <span>@crash.CRASH_TIME</span>
                                 </div>
-                                <div class="row">
-                                    <span class="badge bg-danger text-dark justify-content-end" style="float:right">
-                                        Crash Severity: @crash.CRASH_SEVERITY_ID
-                                    </span>
-                                    <span class="card-text">
-                                        <a class="btn btn-sm btn-info float-end" asp-controller="Home" asp-action="CrashDetails" asp-route-crashid="@crash.CRASH_ID">Details</a>
-                                    </span>
+                                <div class="col-3">
+                                    <div class="row">
+                                        @if (crash.CRASH_SEVERITY_ID < 4)
+                                        {
+                                        <span class="badge badge-pill badge-warning" style="float:right">
+                                            Crash Severity: @crash.CRASH_SEVERITY_ID
+                                        </span>
+                                        }
+                                        else
+                                        {
+                                        <span class="badge badge-pill badge-danger" style="float:right">
+                                            Crash Severity: @crash.CRASH_SEVERITY_ID
+                                        </span>
+                                        }
+                                    </div>
+                                    <div class="row">
+                                        <span class="card-text">
+                                            <a class="btn btn-outline-info btn-sm" asp-controller="Home" asp-action="CrashDetails" asp-route-crashid="@crash.CRASH_ID">Details</a>
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -43,5 +56,6 @@
 </div>
 
 <nav aria-label="Page navigation example">
-    <ul class="pagination justify-content-end" page-blah="@Model.PageInfo" page-action="Index"></ul>
+    <ul class="pagination pagination-sm justify-content-center" page-blah="@Model.PageInfo" page-action="Crashes" page-class="btn"
+        page-class-normal="btn-outline-secondary" page-class-selected="btn-secondary" page-classes-enabled="true"></ul>
 </nav>
