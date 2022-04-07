@@ -63,7 +63,7 @@ namespace IntexTwo
 
 
 
-            // !!! IMPORTANT !!!
+            //!!!IMPORTANT!!!
             // VVV DOESNT RUN ON MAC BUT WE NEED THIS FOR THE PREDICTION VVV
 
             //services.AddSingleton<InferenceSession>(
