@@ -5,7 +5,7 @@
        asp-action="Crashes"
        asp-route-cityName=""
        asp-route-pageNum="1"
-       class="btn btn-sm btn-outline-primary mb-2 @(ViewBag.Cities == "" ? "btn-primary" :  "btn-outline-primary")">Home</a>
+       class="btn btn-sm btn-outline-primary @(ViewBag.Cities == "" ? "btn-primary" :  "btn-outline-primary")">Home</a>
 
     @foreach (string city in Model)
     {

@@ -46,7 +46,9 @@
     </table>
 </div>
 
-<paging total-records="@Model.PageInfo.NumOfCrashes"
-        page-no="@Model.PageInfo.CurrentPage"
-        page-size="@Model.PageInfo.CrashesPerPage"
-        show-page-size-nav="false"></paging>
+<div class="pt-5">
+    <paging total-records="@Model.PageInfo.NumOfCrashes"
+            page-no="@Model.PageInfo.CurrentPage"
+            page-size="@Model.PageInfo.CrashesPerPage"
+            show-page-size-nav="false"></paging>
+</div>
