@@ -4,162 +4,175 @@
 
 @model IntexTwo.Models.CrashModel
 
-<h1>Create/Edit Crash</h1>
-
-<form method="post" class="mb-4">
-    <div asp-validation-summary="All"></div>
-
-    <div class="form-group">
-        <label asp-for="CRASH_DATE">Date</label>
-        <input type="text" class="form-control" asp-for="CRASH_DATE">
+<div class="card border-light mb-4">
+    <div class="row m-1 p-1 justify-content-between align-items-center">
+        <h1 class="row mt-3 ml-4">Create/Edit Crash</h1>
     </div>
 
-    <div class="form-group">
-        <label asp-for="CRASH_TIME">Time</label>
-        <input type="text" class="form-control" asp-for="CRASH_TIME">
-    </div>
+    <form method="post" class="mb-4">
+        <div asp-validation-summary="All"></div>
 
-    <div class="form-group">
-        <label asp-for="ROUTE">Route</label>
-        <input type="number" class="form-control" asp-for="ROUTE">
-    </div>
+        <div class="form-group mx-5">
+            <label asp-for="CRASH_DATE">Date</label>
+            <input type="text" class="form-control" asp-for="CRASH_DATE">
+        </div>
 
-    <div class="form-group">
-        <label asp-for="MILEPOINT">Mile Point</label>
-        <input step="any" type="number" class="form-control" asp-for="MILEPOINT">
-    </div>
+        <div class="form-group mx-5">
+            <label asp-for="CRASH_TIME">Time</label>
+            <input type="text" class="form-control" asp-for="CRASH_TIME">
+        </div>
 
-    <div class="form-group">
-        <label asp-for="LAT_UTM_Y">Latitude</label>
-        <input step="any" type="number" class="form-control" asp-for="LAT_UTM_Y">
-    </div>
+        <div class="form-group mx-5">
+            <label asp-for="ROUTE">Route</label>
+            <input type="number" class="form-control" asp-for="ROUTE">
+        </div>
 
-    <div class="form-group">
-        <label asp-for="LONG_UTM_X">Longitude</label>
-        <input step="any" type="number" class="form-control" asp-for="LONG_UTM_X">
-    </div>
+        <div class="form-group mx-5">
+            <label asp-for="MILEPOINT">Mile Point</label>
+            <input step="any" type="number" class="form-control" asp-for="MILEPOINT">
+        </div>
 
-    <div class="form-group">
-        <label asp-for="MAIN_ROAD_NAME">Road Name</label>
-        <input type="text" class="form-control" asp-for="MAIN_ROAD_NAME" style="text-transform:uppercase">
-    </div>
+        <div class="form-group mx-5">
+            <label asp-for="LAT_UTM_Y">Latitude</label>
+            <input step="any" type="number" class="form-control" asp-for="LAT_UTM_Y">
+        </div>
 
-    <div class="form-group">
-        <label asp-for="CITY">City</label>
-        <input type="text" class="form-control" asp-for="CITY" style="text-transform:uppercase">
-    </div>
+        <div class="form-group mx-5">
+            <label asp-for="LONG_UTM_X">Longitude</label>
+            <input step="any" type="number" class="form-control" asp-for="LONG_UTM_X">
+        </div>
 
-    <div class="form-group">
-        <label asp-for="COUNTY_NAME">County</label>
-        <input type="text" class="form-control" asp-for="COUNTY_NAME" style="text-transform:uppercase">
-    </div>
+        <div class="form-group mx-5">
+            <label asp-for="MAIN_ROAD_NAME">Road Name</label>
+            <input type="text" class="form-control" asp-for="MAIN_ROAD_NAME" style="text-transform:uppercase">
+        </div>
 
-    <div class="form-group">
-        <label asp-for="CRASH_SEVERITY_ID">Severity</label>
-        <input step="any" type="number" class="form-control" asp-for="CRASH_SEVERITY_ID">
-    </div>
+        <div class="form-group mx-5">
+            <label asp-for="CITY">City</label>
+            <input type="text" class="form-control" asp-for="CITY" style="text-transform:uppercase">
+        </div>
 
-    <div class="form-group">
-        <label asp-for="WORK_ZONE_RELATED">Work Zone Related</label>
-        <input type="checkbox" class="form-control" asp-for="WORK_ZONE_RELATED">
-    </div>
+        <div class="form-group mx-5">
+            <label asp-for="COUNTY_NAME">County</label>
+            <input type="text" class="form-control" asp-for="COUNTY_NAME" style="text-transform:uppercase">
+        </div>
 
-    <div class="form-group">
-        <label asp-for="PEDESTRIAN_INVOLVED">Pedestrian Involved</label>
-        <input type="checkbox" class="form-control" asp-for="PEDESTRIAN_INVOLVED">
-    </div>
+        <div class="form-group mx-5">
+            <label asp-for="CRASH_SEVERITY_ID">Severity</label>
+            <input step="any" type="number" class="form-control" asp-for="CRASH_SEVERITY_ID">
+        </div>
 
-    <div class="form-group">
-        <label asp-for="BICYCLIST_INVOLVED">Bycyclist Involved</label>
-        <input type="checkbox" class="form-control" asp-for="BICYCLIST_INVOLVED">
-    </div>
+        <div class="row m-1 p-1">
+            <div class="col-3">
+                <div class="form-group ml-5">
+                    <label asp-for="WORK_ZONE_RELATED">Work Zone Related</label>
+                    <input type="checkbox" class="form-control" asp-for="WORK_ZONE_RELATED">
+                </div>
 
-    <div class="form-group">
-        <label asp-for="MOTORCYCLE_INVOLVED">Motorcycle Involved</label>
-        <input type="checkbox" class="form-control" asp-for="MOTORCYCLE_INVOLVED" />
-    </div>
+                <div class="form-group ml-5">
+                    <label asp-for="PEDESTRIAN_INVOLVED">Pedestrian Involved</label>
+                    <input type="checkbox" class="form-control" asp-for="PEDESTRIAN_INVOLVED">
+                </div>
 
-    <div class="form-group">
-        <label asp-for="IMPROPER_RESTRAINT">Improper Restraint</label>
-        <input type="checkbox" class="form-control" asp-for="IMPROPER_RESTRAINT">
-    </div>
+                <div class="form-group ml-5">
+                    <label asp-for="BICYCLIST_INVOLVED">Bycyclist Involved</label>
+                    <input type="checkbox" class="form-control" asp-for="BICYCLIST_INVOLVED">
+                </div>
 
-    <div class="form-group">
-        <label asp-for="UNRESTRAINED">Unrestrained</label>
-        <input type="checkbox" class="form-control" asp-for="UNRESTRAINED">
-    </div>
+                <div class="form-group ml-5">
+                    <label asp-for="MOTORCYCLE_INVOLVED">Motorcycle Involved</label>
+                    <input type="checkbox" class="form-control" asp-for="MOTORCYCLE_INVOLVED" />
+                </div>
 
-    <div class="form-group">
-        <label asp-for="DUI">DUI</label>
-        <input type="checkbox" class="form-control" asp-for="DUI">
-    </div>
+                <div class="form-group ml-5">
+                    <label asp-for="DISTRACTED_DRIVING">Distracted Driving</label>
+                    <input type="checkbox" class="form-control" asp-for="DISTRACTED_DRIVING">
+                </div>
+            </div>
 
-    <div class="form-group">
-        <label asp-for="INTERSECTION_RELATED">Intersection Related</label>
-        <input type="checkbox" class="form-control" asp-for="INTERSECTION_RELATED">
-    </div>
+            <div class="col-3">
+                <div class="form-group ml-5">
+                    <label asp-for="IMPROPER_RESTRAINT">Improper Restraint</label>
+                    <input type="checkbox" class="form-control" asp-for="IMPROPER_RESTRAINT">
+                </div>
 
-    <div class="form-group">
-        <label asp-for="WILD_ANIMAL_RELATED">Wild Animal Related</label>
-        <input type="checkbox" class="form-control" asp-for="WILD_ANIMAL_RELATED">
-    </div>
+                <div class="form-group ml-5">
+                    <label asp-for="UNRESTRAINED">Unrestrained</label>
+                    <input type="checkbox" class="form-control" asp-for="UNRESTRAINED">
+                </div>
 
-    <div class="form-group">
-        <label asp-for="DOMESTIC_ANIMAL_RELATED">Domestic Animal Related</label>
-        <input type="checkbox" class="form-control" asp-for="DOMESTIC_ANIMAL_RELATED">
-    </div>
+                <div class="form-group ml-5">
+                    <label asp-for="DUI">DUI</label>
+                    <input type="checkbox" class="form-control" asp-for="DUI">
+                </div>
 
-    <div class="form-group">
-        <label asp-for="OVERTURN_ROLLOVER">Overturn Rollover</label>
-        <input type="checkbox" class="form-control" asp-for="OVERTURN_ROLLOVER">
-    </div>
+                <div class="form-group ml-5">
+                    <label asp-for="INTERSECTION_RELATED">Intersection Related</label>
+                    <input type="checkbox" class="form-control" asp-for="INTERSECTION_RELATED">
+                </div>
 
-    <div class="form-group">
-        <label asp-for="COMMERCIAL_MOTOR_VEH_INVOLVED">Commercial Motor Vehicle Involved</label>
-        <input type="checkbox" class="form-control" asp-for="COMMERCIAL_MOTOR_VEH_INVOLVED">
-    </div>
+                <div class="form-group ml-5">
+                    <label asp-for="DROWSY_DRIVING">Drowsey Driving</label>
+                    <input type="checkbox" class="form-control" asp-for="DROWSY_DRIVING">
+                </div>
+            </div>
 
-    <div class="form-group">
-        <label asp-for="TEENAGE_DRIVER_INVOLVED">Teenage Driver Involved</label>
-        <input type="checkbox" class="form-control" asp-for="TEENAGE_DRIVER_INVOLVED">
-    </div>
+            <div class="col-3">
+                <div class="form-group ml-5">
+                    <label asp-for="WILD_ANIMAL_RELATED">Wild Animal Related</label>
+                    <input type="checkbox" class="form-control" asp-for="WILD_ANIMAL_RELATED">
+                </div>
 
-    <div class="form-group">
-        <label asp-for="OLDER_DRIVER_INVOLVED">Older Driver Involved</label>
-        <input type="checkbox" class="form-control" asp-for="OLDER_DRIVER_INVOLVED">
-    </div>
+                <div class="form-group ml-5">
+                    <label asp-for="DOMESTIC_ANIMAL_RELATED">Domestic Animal Related</label>
+                    <input type="checkbox" class="form-control" asp-for="DOMESTIC_ANIMAL_RELATED">
+                </div>
 
-    <div class="form-group">
-        <label asp-for="NIGHT_DARK_CONDITION">Night Dark Condition (check if dark)</label>
-        <input type="checkbox" class="form-control" asp-for="NIGHT_DARK_CONDITION">
-    </div>
+                <div class="form-group ml-5">
+                    <label asp-for="OVERTURN_ROLLOVER">Overturn Rollover</label>
+                    <input type="checkbox" class="form-control" asp-for="OVERTURN_ROLLOVER">
+                </div>
 
-    <div class="form-group">
-        <label asp-for="SINGLE_VEHICLE">Single Vehicle</label>
-        <input type="checkbox" class="form-control" asp-for="SINGLE_VEHICLE">
-    </div>
+                <div class="form-group ml-5">
+                    <label asp-for="COMMERCIAL_MOTOR_VEH_INVOLVED">CMV Involved</label>
+                    <input type="checkbox" class="form-control" asp-for="COMMERCIAL_MOTOR_VEH_INVOLVED">
+                </div>
 
-    <div class="form-group">
-        <label asp-for="DISTRACTED_DRIVING">Distracted Driving</label>
-        <input type="checkbox" class="form-control" asp-for="DISTRACTED_DRIVING">
-    </div>
+                <div class="form-group ml-5">
+                    <label asp-for="ROADWAY_DEPARTURE">Roadway Departure</label>
+                    <input type="checkbox" class="form-control" asp-for="ROADWAY_DEPARTURE" value="ROAD">
+                </div>
+            </div>
 
-    <div class="form-group">
-        <label asp-for="DROWSY_DRIVING">Drowsey Driving</label>
-        <input type="checkbox" class="form-control" asp-for="DROWSY_DRIVING">
-    </div>
+            <div class="col-3">
+                <div class="form-group ml-5">
+                    <label asp-for="TEENAGE_DRIVER_INVOLVED">Teenage Driver Involved</label>
+                    <input type="checkbox" class="form-control" asp-for="TEENAGE_DRIVER_INVOLVED">
+                </div>
 
-    <div class="form-group">
-        <label asp-for="ROADWAY_DEPARTURE">Roadway Departure</label>
-        <input type="checkbox" class="form-control" asp-for="ROADWAY_DEPARTURE" value="ROAD">
-    </div>
+                <div class="form-group ml-5">
+                    <label asp-for="OLDER_DRIVER_INVOLVED">Older Driver Involved</label>
+                    <input type="checkbox" class="form-control" asp-for="OLDER_DRIVER_INVOLVED">
+                </div>
 
+                <div class="form-group ml-5">
+                    <label asp-for="NIGHT_DARK_CONDITION">Night Dark Condition</label>
+                    <input type="checkbox" class="form-control" asp-for="NIGHT_DARK_CONDITION">
+                </div>
 
-    @if (ViewBag.Added == false)
-    {
-        <input type="hidden" asp-for="CRASH_ID" />
-    }
+                <div class="form-group ml-5">
+                    <label asp-for="SINGLE_VEHICLE">Single Vehicle</label>
+                    <input type="checkbox" class="form-control" asp-for="SINGLE_VEHICLE">
+                </div>
+            </div>
+        </div>
 
-    <a class="btn btn-secondary" role="button" asp-action="Index">Cancel</a>
-    <button type="submit" class="btn btn-success">Submit</button>
-</form>
+        @if (ViewBag.Added == false)
+        {
+            <input type="hidden" asp-for="CRASH_ID" />
+        }
+
+        <a class="btn btn-outline-secondary ml-5 mt-3" role="button" asp-action="Index">Cancel</a>
+        <button type="submit" class="btn btn-outline-success mt-3">Submit</button>
+    </form>
+</div>

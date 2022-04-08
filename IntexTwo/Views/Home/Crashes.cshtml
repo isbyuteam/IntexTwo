@@ -4,41 +4,47 @@
 
 @model CrashViewModel
 
-<h1>Crashes</h1>
-
-<div class="row m-1 p-1">
-    <div id="types" class="col-3">
-        <vc:crashes></vc:crashes>
+<div class="card border-light mb-3">
+    <div class="row m-1 p-1 justify-content-between align-items-center">
+        <h1 class="row mt-3 ml-4">Crashes</h1>
     </div>
 
-    <div class="card-group col-9">
-        @foreach (var crash in Model.Crashes)
-        {
-            <div class="col-xl-6 col-md-12 mb-4">
-                <div class="card card-stats mb-4 mb-xl-0">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col">
-                                <h5 class="card-title text-uppercase text-muted mb-0">@crash.CRASH_ID</h5>
-                                <span class="h3 font-weight-bold mb-0">@crash.CITY</span>
+    <div class="row m-1 p-1">
+        <div id="types" class="col-3">
+            <vc:crashes></vc:crashes>
+        </div>
+
+        <div class="card-group col-9">
+            @foreach (var crash in Model.Crashes)
+            {
+                <div class="col-xl-6 col-md-12 mb-4">
+                    <div class="card card-stats mb-4 mb-xl-0">
+                        <div class="card-body card-info">
+                            <div class="row">
+                                <div class="col">
+                                    <h5 class="card-title text-sm text-muted mb-0">@crash.CRASH_ID</h5>
+                                    <span class="h3 font-weight-bold mb-0">@crash.CITY</span>
+                                </div>
+                                <div class="col-auto">
+                                    <a class="btn btn-outline-info btn-sm" asp-controller="Home" asp-action="CrashDetails" asp-route-crashid="@crash.CRASH_ID">Details</a>
+                                </div>
                             </div>
-                            <div class="col-auto">
-                                <a class="btn btn-outline-info btn-sm" asp-controller="Home" asp-action="CrashDetails" asp-route-crashid="@crash.CRASH_ID">Details</a>
-                            </div>
+                            <p class="mt-0 mb-0 text-muted text-sm">
+                                <span class="text-nowrap">@crash.CRASH_DATE @crash.CRASH_TIME</span>
+                            </p>
                         </div>
-                        <p class="mt-0 mb-0 text-muted text-sm">
-                            <span class="text-nowrap">@crash.CRASH_DATE @crash.CRASH_TIME</span>
-                        </p>
                     </div>
                 </div>
-            </div>
-        }
+            }
+        </div>
     </div>
 </div>
 
-<div class="pt-5">
+<div class="row justify-content-center pt-5">
     <paging total-records="@Model.PageInfo.NumOfCrashes"
             page-no="@Model.PageInfo.CurrentPage"
             page-size="@Model.PageInfo.CrashesPerPage"
-            show-page-size-nav="false"></paging>
+            show-page-size-nav="false"
+            show-total-pages="false"
+            show-total-records="false"></paging>
 </div>

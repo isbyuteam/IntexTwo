@@ -4,7 +4,7 @@
 
 @model IntexTwo.Models.CrashModel
 
-<div class="card mb-4">
+<div class="card border-light mb-4">
     <div class="card-content">
         <div class="card-body cleartfix">
             <div class="media align-items-stretch">
@@ -46,11 +46,11 @@
                     </ul>
                 </div>
                 <div class="align-self-center">
-                    <h1>Crash Severity: @Model.CRASH_SEVERITY_ID</h1>
+                    <h3>Crash Severity: @Model.CRASH_SEVERITY_ID</h3>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<a class="btn btn-outline-primary" role="button" asp-action="Crashes">Back</a>
+<a class="btn btn-dark" role="button" asp-action="Crashes">Back</a>
