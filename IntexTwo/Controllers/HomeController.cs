@@ -27,25 +27,24 @@ namespace IntexTwo.Controllers
             return View();
         }
 
-        public IActionResult Crashes(string cityName, int pageNum = 1)
+        public IActionResult Crashes(string cityName, int p = 1, int s = 25)
         {
             ViewBag.CityName = cityName ?? "Home";
 
             var crashes = _context.Crashes.ToList();
-            int pageSize = 50;
             var pageData = new CrashViewModel
             {
                 Crashes = _context.Crashes
-                            .Where(crash => crash.CITY == cityName || cityName == null) // filter
+                            .Where(crash => crash.CITY == cityName || cityName == null)
                             .OrderBy(crash => crash.CRASH_ID)
-                            .Skip((pageNum - 1) * pageSize)
-                            .Take(pageSize),
+                            .Skip((p - 1) * s)
+                            .Take(s),
 
                 PageInfo = new PageInformation
                 {
                     NumOfCrashes = _context.Crashes.Count(),
-                    CrashesPerPage = pageSize,
-                    CurrentPage = pageNum
+                    CrashesPerPage = s,
+                    CurrentPage = p
                 }
             };
             return View(pageData);
@@ -58,12 +57,9 @@ namespace IntexTwo.Controllers
             return View(crash);
         }
 
-
         public IActionResult Privacy()
         {
             return View();
         }
-
     }
 }
-

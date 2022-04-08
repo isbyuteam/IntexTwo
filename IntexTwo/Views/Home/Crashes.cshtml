@@ -55,7 +55,7 @@
     </div>
 </div>
 
-<nav aria-label="Page navigation example">
-    <ul class="pagination pagination-sm justify-content-center" page-blah="@Model.PageInfo" page-action="Crashes" page-class="btn"
-        page-class-normal="btn-outline-secondary" page-class-selected="btn-secondary" page-classes-enabled="true"></ul>
-</nav>
+<paging total-records="@Model.PageInfo.NumOfCrashes"
+        page-no="@Model.PageInfo.CurrentPage"
+        page-size="@Model.PageInfo.CrashesPerPage"
+        show-page-size-nav="false"></paging>
