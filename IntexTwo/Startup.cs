@@ -52,14 +52,14 @@ namespace IntexTwo
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
-/*            // Implement HSTS
+           // Implement HSTS
             services.AddHsts(options =>
             {
                 options.Preload = true;
                 options.IncludeSubDomains = true;
                 options.MaxAge = TimeSpan.FromDays(356);
             });
-            services.AddRazorPages();*/
+            services.AddRazorPages();
 
 
 
