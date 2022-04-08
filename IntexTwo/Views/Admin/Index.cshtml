@@ -4,51 +4,56 @@
 
 @model CrashViewModel
 
-<div class="row m-1 p-1 justify-content-between align-items-center">
-    <h1>Admin</h1>
+<div class="card border-light mb-3">
+    <div class="row m-1 p-1 justify-content-between align-items-center">
+        <h1 class="row mt-3 ml-4">Admin</h1>
 
-    <a class="btn btn-outline-success pb-2" role="button" asp-action="CreateEditCrash">Add Record</a>
-</div>
-
-<div class="row m-1 p-1">
-    <div id="types" class="col-3">
-        <vc:filter></vc:filter>
+        <a class="btn btn-outline-success pb-2" role="button" asp-action="CreateEditCrash">Add Record</a>
     </div>
 
-    <table class="table col-9">
-        <thead>
-            <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Date</th>
-                <th scope="col">Time</th>
-                <th scope="col">City</th>
-                <th scope="col">Road</th>
-                <th scope="col">Severity</th>
-                <th scope="col"></th>
-                <th scope="col"></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var crash in Model.Crashes)
-            {
+    <div class="row m-1 p-1">
+        <div id="types" class="col-3">
+            <vc:filter></vc:filter>
+        </div>
+
+        <table class="table col-9">
+            <thead>
                 <tr>
-                    <th scope="row">@crash.CRASH_ID</th>
-                    <td>@crash.CRASH_DATE</td>
-                    <td>@crash.CRASH_TIME</td>
-                    <td>@crash.CITY</td>
-                    <td>@crash.MAIN_ROAD_NAME</td>
-                    <td>@crash.CRASH_SEVERITY_ID</td>
-                    <td><a class="btn btn-outline-info btn-sm" role="button" asp-action="Edit" asp-route-crashId="@crash.CRASH_ID">Edit</a></td>
-                    <td><a class="btn btn-outline-danger btn-sm" role="button" asp-action="Delete" asp-route-crashId="@crash.CRASH_ID">Delete</a></td>
+                    <th scope="col">ID</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">City</th>
+                    <th scope="col">Road</th>
+                    <th scope="col">Severity</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var crash in Model.Crashes)
+                {
+                    <tr>
+                        <th scope="row">@crash.CRASH_ID</th>
+                        <td>@crash.CRASH_DATE</td>
+                        <td>@crash.CRASH_TIME</td>
+                        <td>@crash.CITY</td>
+                        <td>@crash.MAIN_ROAD_NAME</td>
+                        <td>@crash.CRASH_SEVERITY_ID</td>
+                        <td><a class="btn btn-outline-info btn-sm" role="button" asp-action="Edit" asp-route-crashId="@crash.CRASH_ID">Edit</a></td>
+                        <td><a class="btn btn-outline-danger btn-sm" role="button" asp-action="Delete" asp-route-crashId="@crash.CRASH_ID">Delete</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 </div>
 
-<div class="pt-5">
+<div class="row justify-content-center pt-5">
     <paging total-records="@Model.PageInfo.NumOfCrashes"
             page-no="@Model.PageInfo.CurrentPage"
             page-size="@Model.PageInfo.CrashesPerPage"
-            show-page-size-nav="false"></paging>
+            show-page-size-nav="false"
+            show-total-pages="false"
+            show-total-records="false"></paging>
 </div>
+
