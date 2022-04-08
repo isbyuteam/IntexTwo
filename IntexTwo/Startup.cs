@@ -52,15 +52,19 @@ namespace IntexTwo
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
+           // Implement HSTS
+            services.AddHsts(options =>
+            {
+                options.Preload = true;
+                options.IncludeSubDomains = true;
+                options.MaxAge = TimeSpan.FromDays(356);
+            });
             services.AddRazorPages();
-
-
 
             // !!! IMPORTANT !!!
             // VVV DOESNT RUN ON MAC BUT WE NEED THIS FOR THE PREDICTION VVV
-
             //services.AddSingleton<InferenceSession>(
-            //    new InferenceSession("Models/intex2.onnx")
+            //    new InferenceSession("wwwroot/onnx/intex2.onnx")
             //);
         }
 
@@ -87,6 +91,49 @@ namespace IntexTwo
             app.UseAuthentication();
             app.UseAuthorization();
 
+            //app.Use(async (context, next) =>
+            //{
+            //    context.Response.Headers.Add("Content-Security-Policy-Report-Only", "default-src 'self'");
+            //    await next();
+            //});
+
+            // CSP
+            app.Use(async (context, next) =>
+            {
+                context.Response.Headers.Add("X-Xss-Protection", "1");
+                context.Response.Headers.Add("X-Frame-Options", "SAMEORIGIN");
+                context.Response.Headers.Add("X-Content-Type-Options", "nosniff");
+                context.Response.Headers.Add("Referrer-Policy", "no-referrer");
+                context.Response.Headers.Add("Feature-Policy",
+                "vibrate 'self' ; " +
+                "camera 'self' ; " +
+                "microphone 'self' ; " +
+                "speaker 'self' https://youtube.com https://www.youtube.com ;" +
+                "geolocation 'self' ; " +
+                "gyroscope 'self' ; " +
+                "magnetometer 'self' ; " +
+                "midi 'self' ; " +
+                "sync-xhr 'self' ; " +
+                "push 'self' ; " +
+                "notifications 'self' ; " +
+                "fullscreen '*' ; " +
+                "payment 'self' ; ");
+
+                context.Response.Headers.Add(
+                "Content-Security-Policy-Report-Only",
+                "default-src 'self'; " +
+                "script-src-elem 'self'" +
+                "style-src-elem 'self'; " +
+                "img-src 'self'; http://www.w3.org/" +
+                "font-src 'self'" +
+                "media-src 'self'" +
+                "frame-src 'self'" +
+                "connect-src "
+
+                );
+                await next();
+            });
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
@@ -102,3 +149,9 @@ namespace IntexTwo
         }
     }
 }
+
+
+
+
+
+
