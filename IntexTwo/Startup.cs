@@ -52,23 +52,23 @@ namespace IntexTwo
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
-            // Implement HSTS
+/*            // Implement HSTS
             services.AddHsts(options =>
             {
                 options.Preload = true;
                 options.IncludeSubDomains = true;
                 options.MaxAge = TimeSpan.FromDays(356);
             });
-            services.AddRazorPages();
+            services.AddRazorPages();*/
 
 
 
             //!!!IMPORTANT!!!
             // VVV DOESNT RUN ON MAC BUT WE NEED THIS FOR THE PREDICTION VVV
 
-            //services.AddSingleton<InferenceSession>(
-            //    new InferenceSession("wwwroot/onnx/intex2.onnx")
-            //);
+            services.AddSingleton<InferenceSession>(
+                new InferenceSession("wwwroot/onnx/intex2.onnx")
+            );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
