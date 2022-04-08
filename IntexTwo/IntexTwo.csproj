@@ -23,7 +23,7 @@
     <None Remove="LazZiya.TagHelpers" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="wwwroot\onnx\intex2.onnx" />
+    <None Include="wwwroot\intex2.onnx" />
   </ItemGroup>
   <ItemGroup>
     <None Update="app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
@@ -56,11 +56,9 @@
     <Folder Include="Views\Shared\Components\" />
     <Folder Include="Views\Shared\Components\Crashes\" />
     <Folder Include="Views\Shared\Components\Filter\" />
-    <Folder Include="wwwroot\onnx\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\lib\qrcode\" />
-    <Content Remove="wwwroot\onnx\" />
-    <Content Remove="wwwroot\onnx\intex2.onnx" />
+    <Content Remove="wwwroot\intex2.onnx" />
   </ItemGroup>
 </Project>

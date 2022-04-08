@@ -62,10 +62,10 @@ namespace IntexTwo
             services.AddRazorPages();
 
             // !!! IMPORTANT !!!
-            // VVV DOESNT RUN ON MAC BUT WE NEED THIS FOR THE PREDICTION VVV
-            //services.AddSingleton<InferenceSession>(
-            //    new InferenceSession("wwwroot/onnx/intex2.onnx")
-            //);
+            //VVV DOESNT RUN ON MAC BUT WE NEED THIS FOR THE PREDICTION VVV
+            services.AddSingleton<InferenceSession>(
+                new InferenceSession("wwwroot/intex2.onnx")
+            );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
