@@ -46,29 +46,7 @@
         page-classes-enabled="true"></ul>
 </nav>
 
-@*Carson old card*@
-@*<div class="col-xl-6 col-md-12 mb-4">
-    <div class="card">
-        <div class="card-content">
-            <div class="card-body cleartfix">
-                <div class="media align-items-stretch">
-                    <div class="media-body col-9">
-                        <small class="text-muted">ID: @crash.CRASH_ID</small><br />
-                        <span class="pt-1">@crash.CITY</span><br />
-                        <span>@crash.CRASH_DATE</span>
-                        <span>@crash.CRASH_TIME</span>
-
-                        <a class="btn btn-outline-info btn-sm" asp-controller="Home" asp-action="CrashDetails" asp-route-crashid="@crash.CRASH_ID">Details</a>
-                    </div>
-                    <div class="col-3">
-                        <div class="row">
-                            <span class="badge badge-pill badge-warning" style="float:right">
-                                @crash.CRASH_SEVERITY_ID
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>*@
+<paging total-records="@Model.PageInfo.NumOfCrashes"
+        page-no="@Model.PageInfo.CurrentPage"
+        page-size="@Model.PageInfo.CrashesPerPage"
+        show-page-size-nav="false"></paging>
